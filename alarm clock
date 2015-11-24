@@ -1,0 +1,93 @@
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		alarmclock obj3 = new alarmclock();
+		obj3.setAlarm(0,59);
+		
+clock obj = new clock();
+int x=0;
+
+
+		while(x <= 3600)
+		{
+			obj3.tick();
+			x++;
+		}
+
+	}
+
+}
+
+Counter
+
+
+public class counter {
+private int count, base;
+public counter(int baseval){
+	base= baseval;
+	
+}
+public void increment(){
+	
+	count++;
+	if(count == base)
+	{
+		reset();
+	}
+	
+	
+}
+public void reset(){
+	count = 0;}
+public int viewcount(){
+	return count;
+}
+}
+
+
+Clock
+
+public class clock {
+private counter hours,mins,secs;
+public clock(){
+	hours= new counter(24);
+	mins = new counter(60);
+	secs = new counter(60);
+}
+public int viewhr(){
+	return hours.viewcount();
+}
+public int viewmin(){
+	return mins.viewcount();
+}
+public void tick( ) {
+	
+	
+	System.out.println(hours.viewcount() +  ":" + mins.viewcount() + ":" + secs.viewcount());
+	
+	secs.increment();
+	if (secs.viewcount() == 0){
+		mins.increment();
+		if ((secs.viewcount() == 0)&&(mins.viewcount() == 0))
+			hours.increment();
+	}}
+}
+
+Alarmclock
+
+public class alarmclock extends clock {
+private boolean alarmOn;
+private int hrset, minset;
+public alarmclock(){alarmOn = false;}
+public void setAlarm(int hr, int min){
+	hrset = hr; minset = min; alarmOn = true;
+
+}
+public void tick(){
+	super.tick();
+	if ((viewhr() == hrset)&&(viewmin() == minset)&&alarmOn){
+		System.out.println("ring,ring,ring");
+	}
+}
+}
