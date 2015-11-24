@@ -1,0 +1,69 @@
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		aliList MyList = new aliList();
+		MyList.add(2);
+		MyList.add(3);
+		MyList.add(5);
+		MyList.add(10);
+		MyList.ShowAll();
+		MyList.Search(2);
+	}
+
+}
+
+
+public class linkNode {
+
+	int val;
+	linkNode add;
+}
+
+
+public class asadList {
+	public linkNode list;
+	public void add(int val)
+	{
+		linkNode temp;
+		if (list == null)
+		{
+			list = new linkNode();
+			list.val=val;
+		}
+		else
+		{
+			temp=list;
+			list=new linkNode();
+			list.val=val;
+			list.add=temp;
+			//temp.add=list;
+			temp = list;
+			
+		}
+	}
+	public void ShowAll()
+	{
+		linkNode temp;
+		temp=list;
+		while (temp.add !=null)
+		{
+			System.out.println(temp.val);
+			temp=temp.add;
+		}
+		System.out.println(temp.val);
+	}
+	public void Search(int snum)
+	{
+		linkNode temp;
+		temp=list;
+		while (temp.add !=null)
+		{
+			if (list.val==snum)
+				System.out.println("Exists");
+			temp=temp.add;
+		}
+	}
+	
+}
