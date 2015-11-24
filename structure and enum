@@ -1,0 +1,58 @@
+package hello;
+ import java.util.Scanner;
+public class MyMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner obj1 = new Scanner (System.in);
+		
+	
+		
+		SportCar obj = new SportCar();
+		obj.start();
+		
+		/*int y;
+		structure[] str = new structure[12]; 
+		for(int i=0; i<12; i++)
+		{
+			str[i] = new structure(x, y);
+		}*/
+		
+		structure st = new structure(2,4);
+		
+		System.out.println(st.x+" "+st.y);
+		
+		
+		weekdays Day1,Day2;
+		Day1 = weekdays.Sat;
+		Day2 = weekdays.Sun;
+		
+	
+		System.out.println(Day1);
+		System.out.println(Day2);
+	}
+
+}
+
+Structure
+public class structure {
+
+	public int x;
+	public int y;
+	
+	
+	public structure(int x, int y)
+	{
+		this.x = x;
+		this.y = y;
+	}
+	
+	
+}
+
+
+
+public enum weekdays {
+	Sat,Sun,Mon
+}
